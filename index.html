@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="nav">
+        <h1>Library</h1>
+    </div>
+    <div class="main-content">
+        <div class="add-book">
+            <button class="new-book" onclick="openForm()">Add +</button>
+        </div>
+        <div class="book-form">
+            <form action="#">
+                <label for="title">Title</label>
+                <input type="text" id="title" required>
+                <label for="author">Author</label>
+                <input type="text" id="author" required>
+                <label for="number">Number of Pages</label>
+                <input type="number" required>
+                <label for="haveRead">Have Read Yes/No?</label>
+                <input id="haveRead" type="checkbox">
+                <div class="form-buttons">
+                    <button class="enter" type="submit">Enter</button>
+                    <button class="close" type="button">Close</button>
+                </div>
+            </form>
+        </div>
+        <div class="book-cards">
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer">Copyright © 2022 imranprice96</div>
+    </footer>
+</body>
+</html>
