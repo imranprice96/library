@@ -25,6 +25,8 @@ function addBookToLibrary(title, author, pages, read){
     myLibrary.push(book);
 };
 
+//Create card html element for each Book object
+//Add status and remove button to each book with event listeners
 function displayLibrary(){
     const books = document.getElementById("book-case");
     books.innerHTML = '';
@@ -81,11 +83,15 @@ function displayLibrary(){
 //addBookToLibrary('The Very Hungry Caterpillar','Eric Carle',32, true);
 //addBookToLibrary('Dune', 'Frank Herbert', 755, false);
 //-----------------------------
+
+//Initial display
 displayLibrary();
 
 const cards = document.getElementById("book-cards");
 const bookForm = document.getElementById('book-form');
 
+
+//Functions to make form appear and close
 function openForm(){
     bookForm.style.display = 'block';
 }
@@ -96,6 +102,7 @@ function closeForm(){
     
 }
 
+//Get form submit data then add it to library
 function stageBook(){
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
@@ -111,16 +118,19 @@ function stageBook(){
     
 }
 
+//Check if form fields are valid
 function validateInput(title, author, pages){
     return (title != '' && author != '' && pages > 0);
 }
 
+//Remove book by index
 function removeBook(e){
     let index = e.target.getAttribute('data-index');
     myLibrary.splice(index,1);
     displayLibrary();
 }
 
+//Change read status by index
 function changeStatus(e){
     let i = e.target.getAttribute('data-index');
     myLibrary[i].changeReadStatus();
