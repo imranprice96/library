@@ -135,7 +135,7 @@ footer{
     padding: 20px;
 }
 
-.book-cards div{
+.book-cards>div{
     padding: 20px;
     background-color: white;
     font-size: 1.2rem;
@@ -144,3 +144,29 @@ footer{
     text-transform: capitalize;
 }
 
+
+.card-buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.book-cards p{
+    border-bottom: 1px dotted #e2e8f0;
+}
+
+.card-buttons button{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    border: 2px solid white;
+    font-size: 1.2rem;
+}
+
+.status-btn:hover{
+    border-color: #8ebf42;
+}
+
+.remove-book:hover{
+    border-color: #cc0000;
+}

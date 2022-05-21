@@ -15,6 +15,10 @@ Book.prototype.info = function(){
     return (`${this.title} by ${this.author}, ${this.noPages} pages, ${this.checkRead()}.`);
 };
 
+Book.prototype.changeReadStatus = function(){
+    this.haveRead = !this.haveRead;
+};
+
 
 function addBookToLibrary(title, author, pages, read){
     const book = new Book(title, author, pages, read);
@@ -59,7 +63,11 @@ function displayLibrary(){
 
         let changeRead = document.createElement('button');
         changeRead.setAttribute('class', 'status-btn');
+        changeRead.setAttribute('data-index', i);
         changeRead.appendChild(document.createTextNode('Change Read Status'));
+        changeRead.addEventListener('click', (e) => {
+            changeStatus(e);
+        });
 
         btnDiv.appendChild(changeRead);
         btnDiv.appendChild(btn);
@@ -68,10 +76,11 @@ function displayLibrary(){
         i++;
     });
 };
-
-addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false);
-addBookToLibrary('The Very Hungry Caterpillar','Eric Carle',32, true);
-addBookToLibrary('Dune', 'Frank Herbert', 755, false);
+//DUMMY CONTENT---------------- 
+//addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false);
+//addBookToLibrary('The Very Hungry Caterpillar','Eric Carle',32, true);
+//addBookToLibrary('Dune', 'Frank Herbert', 755, false);
+//-----------------------------
 displayLibrary();
 
 const cards = document.getElementById("book-cards");
@@ -107,9 +116,14 @@ function validateInput(title, author, pages){
 }
 
 function removeBook(e){
-    //console.log(e.target.getAttribute('data-index'));
     let index = e.target.getAttribute('data-index');
     myLibrary.splice(index,1);
+    displayLibrary();
+}
+
+function changeStatus(e){
+    let i = e.target.getAttribute('data-index');
+    myLibrary[i].changeReadStatus();
     displayLibrary();
 }
 
