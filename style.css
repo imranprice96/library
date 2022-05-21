@@ -57,7 +57,7 @@ footer{
 }
 
 .new-book:hover{
-    background-color: black;
+    background-color: #334155;
     color: white;
 }
 
@@ -65,6 +65,7 @@ footer{
     position: fixed;
     align-self: center;
     top: 30%;
+    display: none;
 }
 
 .book-form form{
@@ -89,6 +90,35 @@ footer{
 
 .book-form input:focus{
     outline: none;
+}
+
+.book-form button{
+    cursor: pointer;
+    width: 45%;
+    height: 70px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+}
+
+.book-form button:hover{
+    background-color: #e2e8f0;
+    color: black;
+}
+
+.form-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.close{
+    background-color: #cc0000;
+}
+
+.enter{
+    background-color: #8ebf42;
 }
 
 #haveRead{

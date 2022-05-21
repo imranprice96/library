@@ -35,3 +35,14 @@ addBookToLibrary(theVeryHungryCaterpillar);
 addBookToLibrary(Dune);
 console.table(myLibrary);
 console.log(Dune.info());
+
+const cards = document.getElementById("book-cards");
+const bookForm = document.getElementById('book-form');
+
+function openForm(){
+    bookForm.style.display = 'block';
+}
+
+function closeForm(){
+    bookForm.style.display = 'none';
+}
