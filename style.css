@@ -128,7 +128,8 @@ footer{
 
 .book-cards{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 0.33fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.33fr));
     grid-template-rows: 1fr 1fr;
     gap: 20px;
     padding: 20px;
@@ -142,3 +143,4 @@ footer{
     border-radius: 20px;
     text-transform: capitalize;
 }
+

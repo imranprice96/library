@@ -46,13 +46,24 @@ function displayLibrary(){
         div.appendChild(p3);
         div.appendChild(p4);
 
+        let btnDiv = document.createElement('div');
+        btnDiv.setAttribute('class', 'card-buttons');
+
         let btn = document.createElement('button');
         btn.setAttribute('data-index', i);
+        btn.setAttribute('class', 'remove-book');
         btn.appendChild(document.createTextNode('Remove'));
         btn.addEventListener('click', (e) =>{
             removeBook(e);
         });
-        div.appendChild(btn);
+
+        let changeRead = document.createElement('button');
+        changeRead.setAttribute('class', 'status-btn');
+        changeRead.appendChild(document.createTextNode('Change Read Status'));
+
+        btnDiv.appendChild(changeRead);
+        btnDiv.appendChild(btn);
+        div.appendChild(btnDiv);
         books.appendChild(div);
         i++;
     });
