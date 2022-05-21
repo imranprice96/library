@@ -22,7 +22,9 @@ function addBookToLibrary(title, author, pages, read){
 };
 
 function displayLibrary(){
-    document.getElementById("book-case").innerHTML = '';
+    const books = document.getElementById("book-case");
+    books.innerHTML = '';
+    let i = 0;
     myLibrary.forEach((book) =>{
         let div = document.createElement('div');
 
@@ -43,7 +45,16 @@ function displayLibrary(){
         div.appendChild(p2);
         div.appendChild(p3);
         div.appendChild(p4);
-        document.getElementById("book-case").appendChild(div);
+
+        let btn = document.createElement('button');
+        btn.setAttribute('data-index', i);
+        btn.appendChild(document.createTextNode('Remove'));
+        btn.addEventListener('click', (e) =>{
+            removeBook(e);
+        });
+        div.appendChild(btn);
+        books.appendChild(div);
+        i++;
     });
 };
 
@@ -82,6 +93,13 @@ function stageBook(){
 
 function validateInput(title, author, pages){
     return (title != '' && author != '' && pages > 0);
+}
+
+function removeBook(e){
+    //console.log(e.target.getAttribute('data-index'));
+    let index = e.target.getAttribute('data-index');
+    myLibrary.splice(index,1);
+    displayLibrary();
 }
 
 
