@@ -16,25 +16,41 @@ Book.prototype.info = function(){
 };
 
 
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, false);
-const theVeryHungryCaterpillar = new Book('The Very Hungry Caterpillar','Eric Carle',32, true );
-const Dune = new Book('Dune', 'Frank Herbert', 755, false);
-//console.log(theHobbit.info());
-
-
-function addBookToLibrary(book){
+function addBookToLibrary(title, author, pages, read){
+    const book = new Book(title, author, pages, read);
     myLibrary.push(book);
 };
 
 function displayLibrary(){
-    //element append
+    document.getElementById("book-case").innerHTML = '';
+    myLibrary.forEach((book) =>{
+        let div = document.createElement('div');
+
+        let title = document.createTextNode(book.title);
+        let author = document.createTextNode(book.author);
+        let pages = document.createTextNode(`${book.noPages} pages`);
+        let haveRead = document.createTextNode(book.checkRead());
+
+        let p1 = document.createElement('p');
+        p1.appendChild(title);
+        let p2 = document.createElement('p');
+        p2.appendChild(author);
+        let p3 = document.createElement('p');
+        p3.appendChild(pages);
+        let p4 = document.createElement('p');
+        p4.appendChild(haveRead);
+        div.appendChild(p1);
+        div.appendChild(p2);
+        div.appendChild(p3);
+        div.appendChild(p4);
+        document.getElementById("book-case").appendChild(div);
+    });
 };
 
-addBookToLibrary(theHobbit);
-addBookToLibrary(theVeryHungryCaterpillar);
-addBookToLibrary(Dune);
-console.table(myLibrary);
-console.log(Dune.info());
+addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 295, false);
+addBookToLibrary('The Very Hungry Caterpillar','Eric Carle',32, true);
+addBookToLibrary('Dune', 'Frank Herbert', 755, false);
+displayLibrary();
 
 const cards = document.getElementById("book-cards");
 const bookForm = document.getElementById('book-form');
@@ -44,5 +60,28 @@ function openForm(){
 }
 
 function closeForm(){
+    document.getElementById('bookForm').reset();
     bookForm.style.display = 'none';
+    
 }
+
+function stageBook(){
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = document.getElementById('numberOfPages').value;
+    let read = document.getElementById('haveRead').checked;
+    if(validateInput(title, author, pages)){
+        addBookToLibrary(title, author, parseInt(pages), read);
+        displayLibrary();
+        closeForm();
+    }else{
+        document.getElementById('bookForm').reportValidity();
+    }
+    
+}
+
+function validateInput(title, author, pages){
+    return (title != '' && author != '' && pages > 0);
+}
+
+

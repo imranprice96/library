@@ -17,22 +17,22 @@
             <button class="new-book" onclick="openForm()">Add +</button>
         </div>
         <div class="book-form" id="book-form">
-            <form action="#">
-                <label for="title">Title</label>
-                <input type="text" id="title" required>
-                <label for="author">Author</label>
-                <input type="text" id="author" required>
-                <label for="number">Number of Pages</label>
-                <input type="number" required>
+            <form action="" method="POST" name="bookForm" id="bookForm">
+                <label for="title">Title*</label>
+                <input type="text" id="title" name="title" required>
+                <label for="author">Author*</label>
+                <input type="text" id="author" name="author" required>
+                <label for="numberOfPages">Number of Pages*</label>
+                <input type="number" id="numberOfPages" name="numberOfPages" required>
                 <label for="haveRead">Have Read Yes/No?</label>
-                <input id="haveRead" type="checkbox">
+                <input id="haveRead" name="haveRead" type="checkbox">
                 <div class="form-buttons">
-                    <button class="enter" type="submit">Submit</button>
+                    <button class="enter" type="button" onclick="stageBook()">Submit</button>
                     <button class="close" type="button" onclick="closeForm()">Close</button>
                 </div>
             </form>
         </div>
-        <div class="book-cards">
+        <div class="book-cards" id="book-case">
 
         </div>
     </div>

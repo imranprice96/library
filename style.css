@@ -125,3 +125,20 @@ footer{
     height: 30px;
     width: 30px;
 }
+
+.book-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-cards div{
+    padding: 20px;
+    background-color: white;
+    font-size: 1.2rem;
+    align-items: center;
+    border-radius: 20px;
+    text-transform: capitalize;
+}
