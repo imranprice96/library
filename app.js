@@ -1,5 +1,6 @@
 let myLibrary = [];
 
+/*
 function Book(title, author, noPages, haveRead){
     this.title = title;
     this.author = author;
@@ -18,11 +19,34 @@ Book.prototype.info = function(){
 Book.prototype.changeReadStatus = function(){
     this.haveRead = !this.haveRead;
 };
-
+*/
 
 function addBookToLibrary(title, author, pages, read){
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
+};
+
+
+class Book {
+
+    constructor(title,author,noPages,haveRead){
+        this.title = title;
+        this.author = author;
+        this.noPages = noPages;
+        this.haveRead = haveRead;
+    }
+
+    checkRead() {
+        return this.haveRead ? 'have read' : 'not read yet';
+    }
+
+    info() {
+        return (`${this.title} by ${this.author}, ${this.noPages} pages, ${this.checkRead()}.`);
+    }
+
+    changeReadStatus() {
+        this.haveRead = !this.haveRead;
+    }
 };
 
 //Create card html element for each Book object
